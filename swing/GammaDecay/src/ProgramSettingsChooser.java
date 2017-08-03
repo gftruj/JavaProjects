@@ -56,16 +56,15 @@ public class ProgramSettingsChooser extends JFrame {
         }
         public void itemStateChanged(ItemEvent arg0) {
             if(ProgramSettingsChooser.this.languageComboChooser.getSelectedItem() == "English") {
-                ProgramSettingsChooser.this.flagShip.setEngLanguage(Boolean.valueOf(true));
+                ProgramSettingsChooser.this.flagShip.setEngLanguage(true);
             } else if(ProgramSettingsChooser.this.languageComboChooser.getSelectedItem() == "Polski") {
-                ProgramSettingsChooser.this.flagShip.setEngLanguage(Boolean.valueOf(false));
+                ProgramSettingsChooser.this.flagShip.setEngLanguage(false);
             }
 
         }
     }
     class startBtnListener implements ActionListener {
-        startBtnListener() {
-        }
+        startBtnListener() {}
         public void actionPerformed(ActionEvent arg0) {
             new MainProgramContainer(ProgramSettingsChooser.this.flagShip, ProgramSettingsChooser.this.settingsContainer);
             ProgramSettingsChooser.this.dispose();
