@@ -16,8 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class ClassicQuantumPanel extends JPanel {
-    static final int panelW = 600;
-    static final int panelH = 300;
     SettingsContainer sc = new SettingsContainer();
     FlagShip fS = new FlagShip();
     Vector<Particle> particles = new Vector();
@@ -125,17 +123,17 @@ public class ClassicQuantumPanel extends JPanel {
     }
 
     public void checkBG() {
-        Iterator var2 = this.absorbents.iterator();
+        Iterator absorbentsIterator = this.absorbents.iterator();
 
         while(true) {
             Absorbent o;
             do {
                 do {
-                    if(!var2.hasNext()) {
+                    if(!absorbentsIterator.hasNext()) {
                         return;
                     }
 
-                    o = (Absorbent)var2.next();
+                    o = (Absorbent)absorbentsIterator.next();
                 } while(this.p.getX() < o.getX());
             } while((double)this.p.getX() > (double)o.getX() + o.getLenght());
 
@@ -149,10 +147,10 @@ public class ClassicQuantumPanel extends JPanel {
                 }
             }
 
-            Iterator var4 = this.particles.iterator();
+            Iterator particlesIterator = this.particles.iterator();
 
-            while(var4.hasNext()) {
-                Particle w = (Particle)var4.next();
+            while(particlesIterator.hasNext()) {
+                Particle w = (Particle)particlesIterator.next();
 
                 for(int j = 0; j <= this.killedParticles; ++j) {
                     if(w.getQNumber() < this.killedParticles) {
