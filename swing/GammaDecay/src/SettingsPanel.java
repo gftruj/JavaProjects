@@ -3,8 +3,6 @@
 // (powered by Fernflower decompiler)
 //
 
-import sun.plugin.javascript.navig.Anchor;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -21,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 
-public class ClassicData extends JPanel {
+public class SettingsPanel extends JPanel {
     JTextField activityConstantTextField,
                activityPowerTextField,
                absorbentLength;
@@ -31,9 +29,9 @@ public class ClassicData extends JPanel {
              englishSubs = new String[]{"Start", "Clear", "SOURCE", "Presets:", "Activity [Bq/g]:", "Absorbent", "Thickness[cm]", "Add", "", "", "STOP","SETTINGS","OPTIONS"},
              polishSubs = new String[]{"Start", "Wyczyść", "Parametry Źródła", "Presety:", "Aktywność [Bq/g]:", "Absorbent", "Grubość[cm]", "Dodaj", "", "", "STOP","USTAWIENIA","OPCJE"},
              usedSubs;
-    JComboBox presetParticle;
-    JComboBox energyPreset;
-    JComboBox absorbentPreset;
+    JComboBox presetParticle,
+              energyPreset,
+              absorbentPreset;
     JButton startButton,
             clearButton,
             addAbsBtn,
@@ -48,7 +46,7 @@ public class ClassicData extends JPanel {
     FlagShip fs;
     MainPanel mpc;
 
-    public ClassicData(FlagShip flagShip, SettingsContainer ps, MainPanel mainPanel) {
+    public SettingsPanel(FlagShip flagShip, SettingsContainer ps, MainPanel mainPanel) {
         this.presetParticle = new JComboBox(this.presety);
         this.energyPreset = new JComboBox(this.presetyEnergii);
         this.absorbentPreset = new JComboBox(this.presetyAbsorbent);
@@ -81,15 +79,15 @@ public class ClassicData extends JPanel {
         presetLabelC.ipadx = 10;
         //this.add(presetLabel, presetLabelC);
 
-        GridBagConstraints energyPresetC = getGBCwoInsets(0,5,0,1,10);
+        GridBagConstraints energyPresetC = getGBC(0,5,0,1,new Insets(0,0,0,0),10);
         energyPresetC.ipady = 5;
         this.add(this.energyPreset, energyPresetC);
-        this.energyPreset.addActionListener(new ClassicData.energyPresetListener());
+        this.energyPreset.addActionListener(new SettingsPanel.energyPresetListener());
 
         GridBagConstraints presetParticleC = getGBC(0,6,0,1,new Insets(10,0,0,0),10);
         presetParticleC.ipady = 2;
         this.add(this.presetParticle, presetParticleC);
-        this.presetParticle.addActionListener(new ClassicData.ParticlePresetListener());
+        this.presetParticle.addActionListener(new SettingsPanel.ParticlePresetListener());
 
         JLabel activityLabel = new JLabel(this.usedSubs[4]);
         activityLabel.setFont(new Font("TimesRoman", 1, 12));
@@ -125,11 +123,11 @@ public class ClassicData extends JPanel {
         GridBagConstraints absorbentPresetC = getGBC(0,11,2,1,new Insets(0,25,0,0),10);
         absorbentPresetC.ipady = 10;
         this.add(this.absorbentPreset, absorbentPresetC);
-        this.absorbentPreset.addActionListener(new ClassicData.AbsorbentPresetListener());
+        this.absorbentPreset.addActionListener(new SettingsPanel.AbsorbentPresetListener());
 
         this.addAbsBtn = new JButton(this.usedSubs[7]);
         this.add(this.addAbsBtn, getGBC(0,12,3,1,new Insets(10,0,10,0),10));
-        this.addAbsBtn.addActionListener(new ClassicData.addAbsBtnAction());
+        this.addAbsBtn.addActionListener(new SettingsPanel.addAbsBtnAction());
 
         JLabel settings = new JLabel(this.usedSubs[12]);
         settings.setFont(new Font("TimesRoman", 1, 18));
@@ -137,15 +135,15 @@ public class ClassicData extends JPanel {
 
         this.startButton = new JButton(this.usedSubs[0]);
         this.add(this.startButton, getGBC(0,14,0,1,new Insets(5,0,10,0),10));
-        this.startButton.addActionListener(new ClassicData.startBtnListener());
+        this.startButton.addActionListener(new SettingsPanel.startBtnListener());
 
         this.stopBtn = new JButton(this.usedSubs[10]);
         this.add(this.stopBtn, getGBC(0,15,0,1,new Insets(5,0,10,0),10));
-        this.stopBtn.addActionListener(new ClassicData.stopButtonListener());
+        this.stopBtn.addActionListener(new SettingsPanel.stopButtonListener());
 
         this.clearButton = new JButton(this.usedSubs[1]);
         this.add(this.clearButton, getGBC(0,16,0,1,new Insets(5,0,5,0),10));
-        this.clearButton.addActionListener(new ClassicData.clearBtnListener());
+        this.clearButton.addActionListener(new SettingsPanel.clearBtnListener());
 
         this.activityConstantTextField.setText("8");
         this.activityConstantTextField.setEditable(false);
@@ -155,8 +153,8 @@ public class ClassicData extends JPanel {
         Timer t = new Timer(50, (ActionListener)null);
         t.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                if(ClassicData.this.fs.isClearAbs()) {
-                    ClassicData.this.reset();
+                if(SettingsPanel.this.fs.isClearAbs()) {
+                    SettingsPanel.this.reset();
                 }
             }
         });
@@ -164,7 +162,7 @@ public class ClassicData extends JPanel {
     }
 
 
-
+    //GridBagConstraints factory
     public GridBagConstraints getGBC(int gridx,int gridy,int gridWidth,int gridHeight,Insets insets, int anchor){
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = gridx;
@@ -175,15 +173,7 @@ public class ClassicData extends JPanel {
         gbc.anchor = anchor;
         return gbc;
     }
-    public GridBagConstraints getGBCwoInsets(int gridx,int gridy,int gridWidth,int gridHeight,int anchor){
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = gridx;
-        gbc.gridy = gridy;
-        gbc.gridwidth = gridWidth;
-        gbc.gridheight = gridHeight;
-        gbc.anchor = anchor;
-        return gbc;
-    }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.LIGHT_GRAY);
@@ -200,105 +190,84 @@ public class ClassicData extends JPanel {
         }
 
         public void actionPerformed(ActionEvent e) {
-            ClassicData.this.absorbent = (String) ClassicData.this.absorbentPreset.getSelectedItem();
+            SettingsPanel.this.absorbent = (String) SettingsPanel.this.absorbentPreset.getSelectedItem();
         }
     }
-
+    public void activityTextFieldHandler(String x, String y){
+        SettingsPanel.this.activityConstantTextField.setText(x);
+        SettingsPanel.this.activityPowerTextField.setText(y);
+        SettingsPanel.this.activityPowerTextField.setEditable(false);
+        SettingsPanel.this.activityConstantTextField.setEditable(false);
+    }
     class ParticlePresetListener implements ActionListener {
         ParticlePresetListener() {
         }
-
         public void actionPerformed(ActionEvent e) {
-            if(ClassicData.this.presetParticle.getSelectedIndex() == 0) {
-                ClassicData.this.activityConstantTextField.setText("8");
-                ClassicData.this.activityPowerTextField.setText("4");
-                ClassicData.this.activityPowerTextField.setEditable(false);
-                ClassicData.this.activityConstantTextField.setEditable(false);
+            switch (SettingsPanel.this.presetParticle.getSelectedIndex()){
+                case 0:
+                    activityTextFieldHandler("8","4");
+                    break;
+                case 1:
+                    activityTextFieldHandler("2.3","9");
+                    break;
+                case 2:
+                    activityTextFieldHandler("3.7","10");
+                    break;
+                case 3:
+                    activityTextFieldHandler("1","1");
+                    break;
             }
-
-            if(ClassicData.this.presetParticle.getSelectedIndex() == 1) {
-                ClassicData.this.activityConstantTextField.setText("2.3");
-                ClassicData.this.activityPowerTextField.setText("9");
-                ClassicData.this.activityPowerTextField.setEditable(false);
-                ClassicData.this.activityConstantTextField.setEditable(false);
-            }
-
-            if(ClassicData.this.presetParticle.getSelectedIndex() == 2) {
-                ClassicData.this.activityConstantTextField.setText("3.7");
-                ClassicData.this.activityPowerTextField.setText("10");
-                ClassicData.this.activityPowerTextField.setEditable(false);
-                ClassicData.this.activityConstantTextField.setEditable(false);
-            }
-
-            if(ClassicData.this.presetParticle.getSelectedIndex() == 3) {
-                ClassicData.this.activityConstantTextField.setText("1");
-                ClassicData.this.activityPowerTextField.setText("1");
-                ClassicData.this.activityPowerTextField.setEditable(true);
-                ClassicData.this.activityConstantTextField.setEditable(true);
-            }
-
         }
     }
 
     class addAbsBtnAction implements ActionListener {
         addAbsBtnAction() {
         }
-
         public void actionPerformed(ActionEvent e) {
-            if(ClassicData.this.absorbent == "Beton") {
-                if(ClassicData.this.energy == 0.2D) {
-                    ClassicData.this.absorbtion = 0.275D;
-                } else if(ClassicData.this.energy == 1.4D) {
-                    ClassicData.this.absorbtion = 0.12D;
-                } else if(ClassicData.this.energy == 3.0D) {
-                    ClassicData.this.absorbtion = 0.08D;
+            if(SettingsPanel.this.absorbent == "Beton") {
+                if(SettingsPanel.this.energy == 0.2D) {
+                    SettingsPanel.this.absorbtion = 0.275D;
+                } else if(SettingsPanel.this.energy == 1.4D) {
+                    SettingsPanel.this.absorbtion = 0.12D;
+                } else if(SettingsPanel.this.energy == 3.0D) {
+                    SettingsPanel.this.absorbtion = 0.08D;
                 } else {
-                    ClassicData.this.absorbtion = 0.058D;
+                    SettingsPanel.this.absorbtion = 0.058D;
                 }
-            } else if(ClassicData.this.absorbent == "Pb") {
-                if(ClassicData.this.energy == 0.2D) {
-                    ClassicData.this.absorbtion = 11.8D;
-                } else if(ClassicData.this.energy == 1.4D) {
-                    ClassicData.this.absorbtion = 0.6D;
-                } else if(ClassicData.this.energy == 3.0D) {
-                    ClassicData.this.absorbtion = 0.55D;
+            } else if(SettingsPanel.this.absorbent == "Pb") {
+                if(SettingsPanel.this.energy == 0.2D) {
+                    SettingsPanel.this.absorbtion = 11.8D;
+                } else if(SettingsPanel.this.energy == 1.4D) {
+                    SettingsPanel.this.absorbtion = 0.6D;
+                } else if(SettingsPanel.this.energy == 3.0D) {
+                    SettingsPanel.this.absorbtion = 0.55D;
                 } else {
-                    ClassicData.this.absorbtion = 0.46D;
+                    SettingsPanel.this.absorbtion = 0.46D;
                 }
-            } else if(ClassicData.this.energy == 0.2D) {
-                ClassicData.this.absorbtion = 0.323D;
-            } else if(ClassicData.this.energy == 1.4D) {
-                ClassicData.this.absorbtion = 0.141D;
-            } else if(ClassicData.this.energy == 3.0D) {
-                ClassicData.this.absorbtion = 0.094D;
+            } else if(SettingsPanel.this.energy == 0.2D) {
+                SettingsPanel.this.absorbtion = 0.323D;
+            } else if(SettingsPanel.this.energy == 1.4D) {
+                SettingsPanel.this.absorbtion = 0.141D;
+            } else if(SettingsPanel.this.energy == 3.0D) {
+                SettingsPanel.this.absorbtion = 0.094D;
             } else {
-                ClassicData.this.absorbtion = 0.068D;
+                SettingsPanel.this.absorbtion = 0.068D;
             }
 
-            ClassicData.this.a = new Absorbent(ClassicData.this.summaryAbsorbentsLenght, 0, ClassicData.this.absorbtion, Integer.parseInt(ClassicData.this.absorbentLength.getText()), ClassicData.this.absorbent);
-            ClassicData.this.sc.setAbsorbents(ClassicData.this.a);
-            ClassicData.this.fs.setAddedAbsorbent(true);
-            ClassicData.this.summaryAbsorbentsLenght += Integer.parseInt(ClassicData.this.absorbentLength.getText());
+            SettingsPanel.this.a = new Absorbent(SettingsPanel.this.summaryAbsorbentsLenght, 0, SettingsPanel.this.absorbtion, Integer.parseInt(SettingsPanel.this.absorbentLength.getText()), SettingsPanel.this.absorbent);
+            SettingsPanel.this.sc.setAbsorbents(SettingsPanel.this.a);
+            SettingsPanel.this.fs.setAddedAbsorbent(true);
+            SettingsPanel.this.summaryAbsorbentsLenght += Integer.parseInt(SettingsPanel.this.absorbentLength.getText());
         }
     }
 
     class clearBtnListener implements ActionListener {
         clearBtnListener() {
         }
-
         public void actionPerformed(ActionEvent e) {
-            ClassicData.this.summaryAbsorbentsLenght = 20;
-            ClassicData.this.sc.clearAbsorbents();
-            ClassicData.this.fs.setClearAbs(true);
-        }
-    }
-
-    class csvExportAction implements ActionListener {
-        csvExportAction() {
-        }
-
-        public void actionPerformed(ActionEvent e) {
-            ClassicData.this.fs.setExport(true);
+            SettingsPanel.this.summaryAbsorbentsLenght = 20;
+            SettingsPanel.this.sc.clearAbsorbents();
+            SettingsPanel.this.fs.setClearAbs(true);
         }
     }
 
@@ -307,24 +276,24 @@ public class ClassicData extends JPanel {
         }
 
         public void actionPerformed(ActionEvent e) {
-            if(ClassicData.this.energyPreset.getSelectedIndex() == 0) {
-                ClassicData.this.energy = 0.2D;
+            if(SettingsPanel.this.energyPreset.getSelectedIndex() == 0) {
+                SettingsPanel.this.energy = 0.2D;
             }
 
-            if(ClassicData.this.energyPreset.getSelectedIndex() == 1) {
-                ClassicData.this.energy = 1.2D;
+            if(SettingsPanel.this.energyPreset.getSelectedIndex() == 1) {
+                SettingsPanel.this.energy = 1.2D;
             }
 
-            if(ClassicData.this.energyPreset.getSelectedIndex() == 2) {
-                ClassicData.this.energy = 3.0D;
+            if(SettingsPanel.this.energyPreset.getSelectedIndex() == 2) {
+                SettingsPanel.this.energy = 3.0D;
             }
 
-            if(ClassicData.this.energyPreset.getSelectedIndex() == 3) {
-                ClassicData.this.energy = 8.0D;
+            if(SettingsPanel.this.energyPreset.getSelectedIndex() == 3) {
+                SettingsPanel.this.energy = 8.0D;
             }
 
-            ClassicData.this.energyPreset.setEnabled(false);
-            ClassicData.this.absorbentPreset.setEnabled(true);
+            SettingsPanel.this.energyPreset.setEnabled(false);
+            SettingsPanel.this.absorbentPreset.setEnabled(true);
         }
     }
 
@@ -333,9 +302,9 @@ public class ClassicData extends JPanel {
         }
 
         public void actionPerformed(ActionEvent e) {
-            ClassicData.this.sc.clearChart();
-            ClassicData.this.mpc.getQcp().setActivity(Double.parseDouble(ClassicData.this.activityConstantTextField.getText()) * Math.pow(10.0D, Double.parseDouble(ClassicData.this.activityPowerTextField.getText())));
-            ClassicData.this.fs.setAnim(true);
+            SettingsPanel.this.sc.clearChart();
+            SettingsPanel.this.mpc.getQcp().setActivity(Double.parseDouble(SettingsPanel.this.activityConstantTextField.getText()) * Math.pow(10.0D, Double.parseDouble(SettingsPanel.this.activityPowerTextField.getText())));
+            SettingsPanel.this.fs.setAnim(true);
         }
     }
 
@@ -344,8 +313,8 @@ public class ClassicData extends JPanel {
         }
 
         public void actionPerformed(ActionEvent e) {
-            ClassicData.this.sc.clearChart();
-            ClassicData.this.fs.setStopAnim(true);
+            SettingsPanel.this.sc.clearChart();
+            SettingsPanel.this.fs.setStopAnim(true);
         }
     }
 }
