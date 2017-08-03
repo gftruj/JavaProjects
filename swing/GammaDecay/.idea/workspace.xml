@@ -47,18 +47,18 @@
       <file leaf-file-name="ProgramSettingsChooser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProgramSettingsChooser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="71" column="32" lean-forward="false" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+            <state relative-caret-position="-425">
+              <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainProgramContainer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainProgramContainer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainProgramContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state relative-caret-position="168">
+              <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -67,8 +67,8 @@
       <file leaf-file-name="SettingsPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SettingsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="964">
-              <caret line="207" column="51" lean-forward="false" selection-start-line="207" selection-start-column="51" selection-end-line="207" selection-end-column="51" />
+            <state relative-caret-position="216">
+              <caret line="305" column="34" lean-forward="false" selection-start-line="305" selection-start-column="31" selection-end-line="305" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -87,8 +87,8 @@
       <file leaf-file-name="ProgramInitializer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProgramInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="66" lean-forward="false" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
+            <state relative-caret-position="126">
+              <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -117,7 +117,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassicQuantumPanel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClassicQuantumPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ClassicQuantumPanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2919">
@@ -146,6 +146,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mpc</find>
+    </findStrings>
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -163,7 +168,6 @@
         <option value="$PROJECT_DIR$/src/FlagShip.java" />
         <option value="$PROJECT_DIR$/src/DaneClassic.java" />
         <option value="$PROJECT_DIR$/src/MainClassicPanel.java" />
-        <option value="$PROJECT_DIR$/src/ProgramInitializer.java" />
         <option value="$PROJECT_DIR$/src/SettingsChooser.java" />
         <option value="$PROJECT_DIR$/src/MainClassicProgramContainer.java" />
         <option value="$PROJECT_DIR$/src/MainPanel.java" />
@@ -171,9 +175,10 @@
         <option value="$PROJECT_DIR$/src/ClassicData.java" />
         <option value="$PROJECT_DIR$/src/Charts.java" />
         <option value="$PROJECT_DIR$/src/CreateMenu.java" />
-        <option value="$PROJECT_DIR$/src/SettingsPanel.java" />
+        <option value="$PROJECT_DIR$/src/ProgramInitializer.java" />
         <option value="$PROJECT_DIR$/src/ProgramSettingsChooser.java" />
         <option value="$PROJECT_DIR$/src/MainProgramContainer.java" />
+        <option value="$PROJECT_DIR$/src/SettingsPanel.java" />
       </list>
     </option>
   </component>
@@ -827,14 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProgramInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="66" lean-forward="false" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CreateMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -851,26 +848,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassicQuantumPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/ProgramInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2919">
-          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SettingsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="964">
-          <caret line="207" column="51" lean-forward="false" selection-start-line="207" selection-start-column="51" selection-end-line="207" selection-end-column="51" />
+        <state relative-caret-position="126">
+          <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProgramSettingsChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="71" column="32" lean-forward="false" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+        <state relative-caret-position="-425">
+          <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SettingsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="305" column="34" lean-forward="false" selection-start-line="305" selection-start-column="31" selection-end-line="305" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainProgramContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -886,10 +891,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainProgramContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/ClassicQuantumPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        <state relative-caret-position="2919">
+          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding />
         </state>
       </provider>

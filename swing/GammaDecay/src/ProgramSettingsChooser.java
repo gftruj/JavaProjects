@@ -20,8 +20,7 @@ public class ProgramSettingsChooser extends JFrame {
     private String[]            languages = new String[]{"Polski", "English"};
     private JComboBox           languageComboChooser;
     private JButton             start;
-    private JLabel              languageLabelChooser,
-                                gameTypeChooserLabel;
+    private JLabel              languageLabelChooser;
     private static int          panelW = 50,
                                 panelH = 200;
     //The settings chooser box:
