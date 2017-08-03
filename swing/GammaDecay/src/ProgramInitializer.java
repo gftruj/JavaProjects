@@ -6,10 +6,10 @@
 public class ProgramInitializer {
     FlagShip flagShip = new FlagShip();
     SettingsContainer settingsContainer = new SettingsContainer();
-    SettingsChooser settingsChooser;
+    ProgramSettingsChooser settingsChooser;
 
     public ProgramInitializer() {
-        this.settingsChooser = new SettingsChooser(this.flagShip, this.settingsContainer);
+        this.settingsChooser = new ProgramSettingsChooser(this.flagShip, this.settingsContainer);
     }
 
     public static void main(String[] args) {

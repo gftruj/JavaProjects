@@ -7,7 +7,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 public class MainProgramContainer extends JFrame {
-    SettingsPanel classicData;
+    SettingsPanel settingsPanel;
     MainPanel mainPanel;
     String[] englishSubs = new String[]{"Gamma Decay", "File", "Close", "Help", "About", "Contribute", "Made by Piotr Milewski & Jack Sikorski \n Made For: \n mgr. Jacek Bzdak", "Likd the Program? \nContribute by sending 1$ at\n 24 1140 2004 0000 3102 5087 5347"};
     String[] polishSubs = new String[]{"Osłabienie Gamma", "Plik", "Zamknij", "Pomoc", "O Programie", "Przyczyń sie", "Autorzy: Piotr Milewski i Jacek Sikorski \n Wyprodukowano Dla: \n mgr. Jacek Bzdak", "Fajny Pr0gram? \nPrzyczayń sie do niego stawiajac nam Cole(1$) na \n 24 1140 2004 0000 3102 5087 5347"};
@@ -27,10 +27,10 @@ public class MainProgramContainer extends JFrame {
         this.setLayout(new BorderLayout());
         new CreateMenu(this.lang, this);
         this.mainPanel = new MainPanel(flagShip, settingsContainer);
-        this.classicData = new SettingsPanel(flagShip, settingsContainer, this.mainPanel);
+        this.settingsPanel = new SettingsPanel(flagShip, settingsContainer, this.mainPanel);
 
         this.add(this.mainPanel, "Center");
-        this.add(this.classicData, "East");
+        this.add(this.settingsPanel, "East");
         this.setDefaultCloseOperation(3);
         this.setSize(800, 600);
         this.setTitle(this.usedSubs[0]);

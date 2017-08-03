@@ -13,7 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class SettingsChooser extends JFrame {
+public class ProgramSettingsChooser extends JFrame {
     // Flag container, settings container, language tmp's, boxes, labels, and the start button
     private FlagShip            flagShip;
     private SettingsContainer   settingsContainer;
@@ -25,7 +25,7 @@ public class SettingsChooser extends JFrame {
     private static int          panelW = 50,
                                 panelH = 200;
     //The settings chooser box:
-    public SettingsChooser(FlagShip flagShip, SettingsContainer settingsContainer) {
+    public ProgramSettingsChooser(FlagShip flagShip, SettingsContainer settingsContainer) {
         //JFrame properties
         this.setLayout(new FlowLayout());
         this.setDefaultCloseOperation(3);
@@ -45,8 +45,8 @@ public class SettingsChooser extends JFrame {
         this.add(this.start);
         this.setVisible(true);
         // listeners
-        this.languageComboChooser.addItemListener(new SettingsChooser.languageComboChooserListener());
-        this.start.addActionListener(new SettingsChooser.startBtnListener());
+        this.languageComboChooser.addItemListener(new ProgramSettingsChooser.languageComboChooserListener());
+        this.start.addActionListener(new ProgramSettingsChooser.startBtnListener());
 
     }
 
@@ -56,10 +56,10 @@ public class SettingsChooser extends JFrame {
         languageComboChooserListener() {
         }
         public void itemStateChanged(ItemEvent arg0) {
-            if(SettingsChooser.this.languageComboChooser.getSelectedItem() == "English") {
-                SettingsChooser.this.flagShip.setEngLanguage(Boolean.valueOf(true));
-            } else if(SettingsChooser.this.languageComboChooser.getSelectedItem() == "Polski") {
-                SettingsChooser.this.flagShip.setEngLanguage(Boolean.valueOf(false));
+            if(ProgramSettingsChooser.this.languageComboChooser.getSelectedItem() == "English") {
+                ProgramSettingsChooser.this.flagShip.setEngLanguage(Boolean.valueOf(true));
+            } else if(ProgramSettingsChooser.this.languageComboChooser.getSelectedItem() == "Polski") {
+                ProgramSettingsChooser.this.flagShip.setEngLanguage(Boolean.valueOf(false));
             }
 
         }
@@ -68,8 +68,8 @@ public class SettingsChooser extends JFrame {
         startBtnListener() {
         }
         public void actionPerformed(ActionEvent arg0) {
-            new MainProgramContainer(SettingsChooser.this.flagShip, SettingsChooser.this.settingsContainer);
-            SettingsChooser.this.dispose();
+            new MainProgramContainer(ProgramSettingsChooser.this.flagShip, ProgramSettingsChooser.this.settingsContainer);
+            ProgramSettingsChooser.this.dispose();
         }
     }
 }
