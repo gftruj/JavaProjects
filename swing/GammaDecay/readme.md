@@ -11,7 +11,6 @@ Made in the late 2014'.
 * Select the absorbent properties and add it to the scene.
 * An alert will come up once the gamma radioation intensity is less then 1 bq/g
 
-Check it out:
 ![alt text](gamma.gif)
 ## Notes
 
